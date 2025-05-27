@@ -1,10 +1,8 @@
 import streamlit as st
 
-# Title & Description
 st.title("⚙️ Unit Converter")
 st.markdown("### Convert between different units of measurement easily")
 
-# Conversion mappings with lambda functions
 conversion_factors = {
     "Length": {
         "Kilometers to Miles": lambda v: v * 0.621371,
@@ -34,21 +32,16 @@ conversion_factors = {
     }
 }
 
-# Select category
 category = st.selectbox("📏 Select Conversion Type", conversion_factors.keys())
 
-# Select unit based on category
 unit = st.selectbox("🔄 Select Unit", conversion_factors[category].keys())
 
-# Input value
 value = st.number_input("🔢 Enter value to convert", min_value=0.0, step=0.1)
 
-# Convert button
 if st.button("🚀 Convert"):
     result = conversion_factors[category][unit](value)
     st.success(f"✅ Converted Value: {result:.2f} {unit.split(' to ')[-1]}")
 
-# Developer credit
 st.markdown("---")
 st.markdown("### Developed by [Khubaib Mustafa]")
-st.markdown("### Source Code: [GitHub Repository]")
+st.markdown("### Source Code: [https://github.com/Khubaib-Mustafa/Sir-Zia-Assignment-1-Unit-Convertor-]")
